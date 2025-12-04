@@ -1,0 +1,60 @@
+pipeline:
+  name: CI-pipeline
+  identifier: CIpipeline
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: harnesstesting
+        repoName: HarnessCICD
+        build: <+input>
+        sparseCheckout: []
+        sslVerify: false
+        persistCredentials: true
+  stages:
+    - stage:
+        name: Stage-1
+        identifier: Stage1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: dockertestconnector
+                    image: alpine/git
+                    shell: Sh
+                    command: |-
+                      echo "Pramee"
+                      git status
+                      git remote -v
+                      cat ${HOME}/.netrc
+                      printenv
+                      export NPM_TOKEN=$(echo <+secrets.getValue("prameet-token")> | tr -d '\r\n')
+                      echo $NPM_TOKEN
+
+                      export PRAMEET="pramete"
+                      echo $PRAMEET
+
+                      echo <+<+codebase.branch>.replaceAll("/","-") + '.' + <+pipeline.sequenceId>>
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8stestclusterconnect
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              harnessImageConnectorRef: dockertestconnector
+              os: Linux
