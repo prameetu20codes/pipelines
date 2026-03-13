@@ -1,0 +1,21 @@
+template:
+  name: step-test
+  identifier: steptest
+  versionLabel: v1
+  type: Step
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      delegateSelectors: []
+      source:
+        type: Inline
+        spec:
+          script: echo "123"
+      environmentVariables: []
+      outputVariables: []
