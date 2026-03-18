@@ -1,0 +1,30 @@
+pipeline:
+  name: test-pipe-12354
+  identifier: testpipe12354
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  stages:
+    - stage:
+        name: as
+        identifier: as
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "ASWED"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
