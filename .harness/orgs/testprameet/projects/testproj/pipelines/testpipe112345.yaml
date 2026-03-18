@@ -29,6 +29,17 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: ManualIntervention
+                          spec:
+                            onTimeout:
+                              action:
+                                type: MarkAsSuccess
+                            timeout: 1d
               - parallel:
                   - stepGroup:
                       name: test-sg
