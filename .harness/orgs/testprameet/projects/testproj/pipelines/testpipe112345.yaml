@@ -79,6 +79,26 @@ pipeline:
                               environmentVariables: []
                               outputVariables: []
                             timeout: 10m
+                        - stepGroup:
+                            name: trtr
+                            identifier: trtr
+                            steps:
+                              - step:
+                                  type: ShellScript
+                                  name: ShellScript_4
+                                  identifier: ShellScript_4
+                                  spec:
+                                    shell: Bash
+                                    executionTarget: {}
+                                    source:
+                                      type: Inline
+                                      spec:
+                                        script: echo "hi"
+                                    environmentVariables: []
+                                    outputVariables: []
+                                  timeout: 10m
+                            when:
+                              stageStatus: All
                       when:
-                        stageStatus: Success
+                        stageStatus: All
         tags: {}
