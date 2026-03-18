@@ -27,4 +27,25 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+              - stepGroup:
+                  name: test-sg
+                  identifier: testsg
+                  steps:
+                    - step:
+                        type: ShellScript
+                        name: ShellScript_2
+                        identifier: ShellScript_2
+                        spec:
+                          shell: Bash
+                          executionTarget: {}
+                          source:
+                            type: Inline
+                            spec:
+                              script: echo "123456"
+                          environmentVariables: []
+                          outputVariables: []
+                        timeout: 10m
+                  when:
+                    stageStatus: Success
+                    condition: "true"
         tags: {}
