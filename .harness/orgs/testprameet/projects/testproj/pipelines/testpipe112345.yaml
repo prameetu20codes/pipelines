@@ -99,6 +99,8 @@ pipeline:
                                     environmentVariables: []
                                     outputVariables: []
                                   timeout: 10m
+                            when:
+                              stageStatus: All
                       when:
                         stageStatus: All
         tags: {}
