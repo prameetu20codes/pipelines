@@ -79,6 +79,8 @@ pipeline:
                               environmentVariables: []
                               outputVariables: []
                             timeout: 10m
+                            when:
+                              stageStatus: All
                         - stepGroup:
                             name: trtr
                             identifier: trtr
