@@ -27,24 +27,45 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
-              - stepGroup:
-                  name: test-sg
-                  identifier: testsg
-                  steps:
-                    - step:
-                        type: ShellScript
-                        name: ShellScript_2
-                        identifier: ShellScript_2
-                        spec:
-                          shell: Bash
-                          executionTarget: {}
-                          source:
-                            type: Inline
+              - parallel:
+                  - stepGroup:
+                      name: test-sg
+                      identifier: testsg
+                      steps:
+                        - step:
+                            type: ShellScript
+                            name: ShellScript_2
+                            identifier: ShellScript_2
                             spec:
-                              script: echo "123456"
-                          environmentVariables: []
-                          outputVariables: []
-                        timeout: 10m
-                  when:
-                    stageStatus: Success
+                              shell: Bash
+                              executionTarget: {}
+                              source:
+                                type: Inline
+                                spec:
+                                  script: echo "123456"
+                              environmentVariables: []
+                              outputVariables: []
+                            timeout: 10m
+                      when:
+                        stageStatus: Success
+                  - stepGroup:
+                      name: failure
+                      identifier: failure
+                      steps:
+                        - step:
+                            type: ShellScript
+                            name: ShellScript_3
+                            identifier: ShellScript_3
+                            spec:
+                              shell: Bash
+                              executionTarget: {}
+                              source:
+                                type: Inline
+                                spec:
+                                  script: echo "Heloo from shell scrip 3"
+                              environmentVariables: []
+                              outputVariables: []
+                            timeout: 10m
+                      when:
+                        stageStatus: Success
         tags: {}
