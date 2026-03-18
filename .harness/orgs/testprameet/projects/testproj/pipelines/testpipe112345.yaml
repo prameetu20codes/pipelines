@@ -47,5 +47,4 @@ pipeline:
                         timeout: 10m
                   when:
                     stageStatus: Success
-                    condition: "true"
         tags: {}
