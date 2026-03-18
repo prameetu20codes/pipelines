@@ -23,7 +23,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo "ASWED"
+                        script: |-
+                          echo "ASWED"
+                          exit -1
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
