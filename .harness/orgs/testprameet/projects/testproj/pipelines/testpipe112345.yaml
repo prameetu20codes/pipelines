@@ -79,6 +79,8 @@ pipeline:
                               environmentVariables: []
                               outputVariables: []
                             timeout: 10m
+                            when:
+                              stageStatus: All
                         - stepGroup:
                             name: trtr
                             identifier: trtr
@@ -100,5 +102,5 @@ pipeline:
                             when:
                               stageStatus: All
                       when:
-                        stageStatus: All
+                        stageStatus: Success
         tags: {}
