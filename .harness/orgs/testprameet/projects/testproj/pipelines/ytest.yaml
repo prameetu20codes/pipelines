@@ -1,0 +1,33 @@
+pipeline:
+  name: ytest
+  identifier: ytest
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  stages:
+    - stage:
+        name: stage
+        identifier: stage
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          echo "1223"
+                          echo "<+pipeline.connectorRef>"
+                          echo "<+pipeline.repo>"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
