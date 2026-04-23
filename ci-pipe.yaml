@@ -1,6 +1,6 @@
 pipeline:
-  name: CI-pipeline
-  identifier: CIpipeline
+  name: CIpipeline1234
+  identifier: CIpipeline1234
   projectIdentifier: testproj
   orgIdentifier: testprameet
   tags: {}
