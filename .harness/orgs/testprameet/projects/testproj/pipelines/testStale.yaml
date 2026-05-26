@@ -3,7 +3,7 @@ pipeline:
   identifier: testStale
   tags: {}
   template:
-    templateRef: testtemplatepipe
+    templateRef: test123
     versionLabel: v1
   projectIdentifier: testproj
   orgIdentifier: testprameet
