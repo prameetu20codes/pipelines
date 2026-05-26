@@ -1,0 +1,9 @@
+pipeline:
+  name: testPipe
+  identifier: testPipe
+  tags: {}
+  template:
+    templateRef: test123
+    versionLabel: v1
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
