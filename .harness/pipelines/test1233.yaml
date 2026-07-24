@@ -1,0 +1,18 @@
+pipeline:
+  stages:
+    - name: Stage 1
+      id: stage1
+      steps:
+        - name: Step 1
+          id: step1
+          run:
+            script: echo "hello world"
+            container:
+              image: alpine
+              connector: docker_connector
+              limits: {}
+              requests: {}
+      runtime:
+        kubernetes:
+          namespace: default
+          connector: cluster_connector
