@@ -1,0 +1,23 @@
+pipeline:
+  name: state-street-repro
+  identifier: statestreetrepro
+  tags: {}
+  template:
+    templateRef: Testsvc
+    versionLabel: v1
+    templateInputs:
+      stages:
+        - stage:
+            identifier: teststage
+            type: Deployment
+            spec:
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
