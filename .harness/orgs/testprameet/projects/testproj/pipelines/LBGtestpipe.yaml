@@ -1,0 +1,22 @@
+pipeline:
+  name: LBG-test-pipe
+  identifier: LBGtestpipe
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  stages:
+    - stage:
+        name: test-stage
+        identifier: teststage
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 10m
+        tags: {}
