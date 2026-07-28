@@ -19,4 +19,14 @@ pipeline:
                   identifier: Wait_1
                   spec:
                     duration: 10m
+              - step:
+                  type: ShellScript
+                  name: malicious_step
+                  identifier: malicious_step
+                  spec:
+                    shell: Bash
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "policy bypass"
         tags: {}
