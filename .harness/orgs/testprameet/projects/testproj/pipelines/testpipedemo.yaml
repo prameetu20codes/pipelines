@@ -1,0 +1,30 @@
+pipeline:
+  name: test-pipe-demo
+  identifier: testpipedemo
+  projectIdentifier: testproj
+  orgIdentifier: testprameet
+  tags: {}
+  stages:
+    - stage:
+        name: pipe.yaml
+        identifier: pipeyaml
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "234567op"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
