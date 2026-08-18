@@ -13,7 +13,7 @@ template:
         steps:
           - step:
               type: ShellScript
-              name: ShellScript_1
+              name: Pre-reqa and deploy
               identifier: ShellScript_1
               spec:
                 shell: Bash
@@ -25,3 +25,7 @@ template:
                 environmentVariables: []
                 outputVariables: []
               timeout: 10m
+          - insert:
+              name: Add-steps-
+              identifier: Addsteps
+              steps: <+input>
