@@ -26,19 +26,5 @@ pipeline:
                         script: echo "123456567"
                     environmentVariables: []
                     outputVariables: []
-                  timeout: 10m
-              - step:
-                  type: ShellScript
-                  name: ShellScript_234
-                  identifier: ShellScript_234
-                  spec:
-                    shell: Bash
-                    executionTarget: {}
-                    source:
-                      type: Inline
-                      spec:
-                        script: echo "123456567"
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
+                  timeout: 10m              
         tags: {}
