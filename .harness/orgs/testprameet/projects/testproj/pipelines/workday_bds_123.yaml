@@ -1,0 +1,48 @@
+pipeline:
+  name: bds-123
+  identifier: workday_bds_123
+  orgIdentifier: testprameet
+  projectIdentifier: testproj
+  description: Delivery pipeline for bds-123 (team workday), created from account.golden_service_pipeline v1 by Pipeline Onboarding.
+  tags:
+    team: workday
+    language: java
+    onboarded-by: pipeline-onboarding
+  template:
+    templateRef: account.golden_service_pipeline
+    versionLabel: v1
+    templateInputs:
+      variables:
+        - name: app_name
+          type: String
+          value: "bds-123"
+        - name: team
+          type: String
+          value: "workday"
+        - name: language
+          type: String
+          value: "java"
+        - name: version_prefix
+          type: String
+          value: "1.0"
+        - name: coverage_threshold
+          type: String
+          value: "80"
+        - name: security_scan
+          type: String
+          value: "true"
+        - name: max_critical_findings
+          type: String
+          value: "0"
+        - name: image_registry
+          type: String
+          value: "registry.example.com"
+        - name: deploy
+          type: String
+          value: "true"
+        - name: environment
+          type: String
+          value: "dev"
+        - name: docker_connector
+          type: String
+          value: "account.dockerhub"
